@@ -3,233 +3,10 @@
 -- filetype plugin indent on
 -- syntax on
 
--- let mapleader=","
+require("options")
+require("keys")
 
--- let g:ale_sign_error = 'X'
--- let g:ale_sign_warning = '!'
--- let g:ale_sign_info = 'i'
--- let g:ale_sign_style_error = 'S'
--- let g:ale_sign_style_warning = 'S'
--- let g:ale_sign_highlight_linenrs = 1
-
--- call plug#begin('~/.local/share/nvim/plugged')
--- Plug 'airblade/vim-gitgutter'
--- Plug 'deviantfero/wpgtk.vim'
--- Plug 'dhruvasagar/vim-table-mode'       " Tables!
--- Plug 'easymotion/vim-easymotion'        " EasyMotion
--- Plug 'harrisonthorne/pandoc-preview.vim'
--- Plug 'honza/vim-snippets'               " Snippets
--- Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
--- Plug 'junegunn/fzf.vim'
--- Plug 'mattn/emmet-vim'                  " Emmet
--- Plug 'mhinz/vim-startify'               " Startify
--- Plug 'neoclide/coc.nvim', {'branch': 'release'}
--- Plug 'psliwka/vim-smoothie'
--- Plug 'rhysd/vim-grammarous'
--- Plug 'sheerun/vim-polyglot'             " languages
--- Plug 'tpope/vim-abolish'                " camelCase to snake_case
--- Plug 'gorodinskiy/vim-coloresque'
--- Plug 'tpope/vim-commentary'             " commentary
--- Plug 'tpope/vim-fugitive'               " Vim fugitive
--- " Plug 'dense-analysis/ale'                         " ale
--- call plug#end()
-
--- let $FZF_DEFAULT_COMMAND = 'ag -g "" --hidden --ignore-dir={.git,node_modules}'
--- let g:fzf_preview_window = 'right:50%'
--- let g:gitgutter_map_keys = 0
--- let g:gitgutter_sign_allow_clobber = 1
--- let g:pandoc_preview_pdf_cmd = "zathura"
--- let g:startify_custom_header = startify#fortune#cowsay('', '═','║','╔','╗','╝','╚')
--- let g:startify_lists = [
---             \ { 'type': 'sessions',  'header': ['   Sessions']             },
---             \ { 'type': 'dir',       'header': ['   Recent in '. getcwd()] },
---             \ { 'type': 'files',     'header': ['   Recent']               },
---             \ { 'type': 'bookmarks', 'header': ['   Bookmarks']            },
---             \ { 'type': 'commands',  'header': ['   Commands']             },
---             \ ]
--- let g:startify_session_persistence = 1
--- let g:tex_conceal = ""
--- let g:user_emmet_install_global = 0
--- let g:user_emmet_leader_key=','
-
--- set autowriteall
--- set autoread
--- set background=dark
--- set breakindent                         " Indents word-wrapped lines as much as the line above
--- set clipboard+=unnamedplus
--- set cmdheight=2
--- set complete+=kspell                    " spell check
--- set completeopt+=preview
--- set conceallevel=1
--- set diffopt+=hiddenoff
--- set equalalways
--- set fillchars+=vert:\||
--- set fillchars+=fold:~
--- set fillchars+=stl:-
--- set fillchars+=stlnc:-
--- set expandtab
--- set formatoptions+=lt " Ensures word-wrap does not split words
--- set hidden
--- set ignorecase
--- set lazyredraw
--- set lbr
--- set list listchars=tab:\>\ ,trail:·
--- set mouse=a
--- set nobackup
--- set nowritebackup
--- set cursorline
--- set noshowmode " hides -- INSERT --
--- set noswapfile
--- set noeb vb t_vb= " disable error bells
--- set nowb
--- set number
--- set rnu
--- set shiftwidth=4
--- set shortmess=caFTW
--- set si   " Smart indent
--- set signcolumn=yes:1
--- set smartcase
--- set softtabstop=4
--- set scrolloff=5
--- set splitbelow
--- set splitright
--- set tabstop=4 " Tab size is 4
--- set textwidth=80
--- set tags=./tags;
--- set notermguicolors
--- set undodir=~/.local/share/nvim/undodir
--- set undofile
--- set undolevels=1000
--- set undoreload=10000
--- set updatetime=300
--- set whichwrap+=<,>,h,l
--- set wildignore+=*/node_modules,*/node_modules/*,.git,.git/*,tags,*/dist,*/dist/*
--- set wrap
-
--- map <bslash> <Plug>(easymotion-prefix)
-
--- " get highlight under cursor
--- map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
---             \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
---             \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-
--- " navigate long lines easily
--- nnoremap <silent> j gj
--- nnoremap <silent> k gk
-
--- inoremap <silent><expr> <C-n> coc#refresh()
--- " FZF/skim
--- map <C-p> :Files<CR>
-
--- " todo list
--- nnoremap <leader>to :Ag (note)\|(xxx)\|(fixme)\|(todo)<cr>
-
--- " easily edit init.vim file
--- map <leader>rc :tabe ~/.config/nvim/init.vim<CR>
-
--- " easy window resizing in normal mode
--- nnoremap <silent> + :5wincmd ><CR>
--- nnoremap <silent> - :5wincmd <<CR>
--- nnoremap <silent> ^ :3wincmd +<CR>
--- nnoremap <silent> _ :3wincmd -<CR>
-
--- " toggle wrap
--- noremap <leader>w :set wrap!<CR>
-
--- " easy window moving and switching
--- noremap <silent> <leader>H :wincmd H<CR>
--- noremap <silent> <leader>J :wincmd J<CR>
--- noremap <silent> <leader>K :wincmd K<CR>
--- noremap <silent> <leader>L :wincmd L<CR>
--- noremap <silent> <leader>h :wincmd h<CR>
--- noremap <silent> <leader>j :wincmd j<CR>
--- noremap <silent> <leader>k :wincmd k<CR>
--- noremap <silent> <leader>l :wincmd l<CR>
--- noremap <silent> <leader>= :wincmd =<CR>
--- noremap <silent> <leader>W :windo set nowinfixwidth nowinfixheight<CR>
-
--- " trim whitespace
--- noremap <silent> <leader>tw :%s/\s\+$//e<CR>:noh<CR>
-
--- " tab shortcuts
--- noremap <leader>tc :tabc<CR>
--- noremap <leader>te :tabe<CR>
-
--- " splitting shortcuts
--- noremap <leader>nv :vs<CR>
--- noremap <leader>ns :sp<CR>
--- noremap <leader>v :vs<CR>:FZF<CR>
--- noremap <leader>s :sp<CR>:FZF<CR>
--- noremap <leader>t :tabe<CR>:FZF<CR>
-
--- " Fugitive shortcuts
--- noremap <leader>gg :Git
--- noremap <leader>gs :Gstatus<CR>
-
--- " Golang shortcuts
--- nnoremap <silent> <leader>gof :!gofmt -s -w "%"<CR>
--- nnoremap <leader>gob :!go build<CR>
--- nnoremap <leader>goi :!go install<CR>
--- nnoremap <leader>gor :!go run *.go
-
--- " Lanuage Server shortcuts
--- nnoremap <silent> <leader>ca :CocAction<CR>
--- nnoremap <silent> <leader>cc :CocCommand<space>
--- nmap <silent> <leader>cr <Plug>(coc-rename)
--- nmap <silent> <leader>cx <Plug>(coc-references)
--- nmap <silent> <leader>ct <Plug>(coc-type-definition)
--- nmap <silent> <leader>cf <Plug>(coc-format)
--- nmap <silent> <leader>cq <Plug>(coc-fix-current)
--- nmap <silent> <leader>ci <Plug>(coc-diagnostic-info)
--- nmap <silent> <leader>cn <Plug>(coc-diagnostic-next)
--- nmap <silent> <leader>cp <Plug>(coc-diagnostic-prev)
--- nmap <silent> <leader>/ <Plug>(coc-definition)
--- nnoremap <silent> <leader>? :call CocAction('doHover')<CR>
--- nnoremap <silent> K :call CocAction('doHover')<CR>
-
--- nnoremap <silent> <leader>xt :tabe<CR>:terminal<CR>i
--- nnoremap <silent> <leader>xv :vs<CR>:terminal<CR>i
--- nnoremap <silent> <leader>xx :terminal<CR>i
--- nnoremap <silent> <leader>xs :sp<CR>:terminal<CR>i
-
--- " Misc shortcuts
--- noremap <silent> <leader>e :Lex<CR>
--- noremap <silent> <leader>q :q<CR>
--- noremap <silent> <leader>pwd :pwd<CR>
--- noremap <silent> <leader>pp :!pandoc --filter pandoc-citeproc "%" -o "%.pdf"<CR>
--- noremap <silent> <leader>pd :!pandoc --filter pandoc-citeproc "%" -o "%.docx"<CR>
--- noremap <silent> <leader>pm :!pandoc --filter pandoc-citeproc "%" -o "%.md"<CR>
--- noremap <silent> <leader>ph :!pandoc --filter pandoc-citeproc "%" -o "%.html"<CR>
--- noremap <silent> <leader>cd :cd %:p:h<CR>:pwd<CR>
--- nnoremap Y y$
-
--- " diff shortcuts
--- nnoremap <leader>dp :diffput<CR>
--- nnoremap <leader>dg :diffget<CR>
--- nnoremap <leader>dt :diffthis<CR>
--- nnoremap <leader>do :diffoff<CR>:set noscrollbind<CR>:set nocursorbind<CR>
-
--- " easy lnext, cnext, etc
--- nnoremap <leader>zn :lnext<CR>
--- nnoremap <leader>zp :lprev<CR>
--- nnoremap <leader>zN :lnfile<CR>
--- nnoremap <leader>zP :lpfile<CR>
--- nnoremap <leader>xn :cnext<CR>
--- nnoremap <leader>xp :cprev<CR>
--- nnoremap <leader>xN :cnfile<CR>
--- nnoremap <leader>xP :cpfile<CR>
-
--- " buffer shortcuts
--- nnoremap <leader>b :ls<CR>:b<space>
-
--- " jump to floating window
--- nmap <leader>f <plug>(coc-float-jump)
-
--- inoremap jj <esc>
--- inoremap fj <esc>
--- nnoremap ! :!
-
--- " autocommands
+-- -- autocommands
 -- augroup auto_commands
 --     autocmd!
 --     autocmd FileType markdown call SetupMarkdown()
@@ -241,7 +18,7 @@
 --     autocmd CursorHold * nested call AutoSave()
 -- augroup END
 
--- " change gutter (SignColumn) color to clear
+-- -- change gutter (SignColumn) color to clear
 -- hi! SignColumn guibg=NONE ctermbg=NONE
 -- hi! LineNr ctermfg=4 guibg=NONE ctermbg=NONE
 
@@ -261,7 +38,7 @@
 -- hi! link WarningMsg Warning
 -- hi! link InfoMsg Info
 
--- " Coc highlights
+-- -- Coc highlights
 -- hi link CocUnderline InfoMsg
 -- hi link CocErrorHighlight ErrorMsg
 -- hi link CocWarningHighlight WarningMsg
@@ -277,7 +54,7 @@
 -- hi CocStyleErrorSign guibg=NONE ctermbg=NONE guifg=red ctermfg=196 gui=bold cterm=bold term=bold
 -- hi CocStyleWarningSign guibg=NONE ctermbg=NONE guifg=yellow ctermfg=226 gui=bold cterm=bold term=bold
 
--- " ALE highlights
+-- -- ALE highlights
 -- hi! link ALEError ErrorMsg
 -- hi! link ALEWarning WarningMsg
 -- hi! link ALEInfo InfoMsg
@@ -443,9 +220,9 @@
 
 -- function! CurrentMode() abort
 --     let l:modecurrent = mode()
---     " use get() -> fails safely, since ^V doesn't seem to register
---     " 3rd arg is used when return of mode() == 0, which is case with ^V
---     " thus, ^V fails -> returns 0 -> replaced with 'V Block'
+--     -- use get() -> fails safely, since ^V doesn't seem to register
+--     -- 3rd arg is used when return of mode() == 0, which is case with ^V
+--     -- thus, ^V fails -> returns 0 -> replaced with 'V Block'
 --     let l:modelist = tolower(get(g:currentmode, l:modecurrent, 'vb'))
 --     let l:current_status_mode = l:modelist
 --     return l:current_status_mode
@@ -512,24 +289,24 @@
 -- fu! TabLine()
 --     let s = ''
 --     for i in range(tabpagenr('$'))
---         " select the highlighting
+--         -- select the highlighting
 --         if i + 1 == tabpagenr()
 --             let s .= '%#TabLineSel#'
 --         else
 --             let s .= '%#TabLine#'
 --         endif
 
---         " set the tab page number (for mouse clicks)
+--         -- set the tab page number (for mouse clicks)
 --         let s .= '%' . (i + 1) . 'T'
 
---         " the label is made by MyTabLabel()
+--         -- the label is made by MyTabLabel()
 --         let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
 --     endfor
 
---     " after the last tab fill with TabLineFill and reset tab page nr
+--     -- after the last tab fill with TabLineFill and reset tab page nr
 --     let s .= '%#TabLineFill#%T'
 
---     " right-align the label to close the current tab page
+--     -- right-align the label to close the current tab page
 --     if tabpagenr('$') > 1
 --         let s .= '%=%#TabLine#%999Xclose'
 --     endif
@@ -547,5 +324,5 @@
 -- hi TabLineFill cterm=bold ctermfg=8 guifg=8 ctermbg=NONE guibg=NONE
 -- hi TabLineSel cterm=bold ctermfg=15 guifg=15 ctermbg=NONE guibg=NONE
 
--- " sudo write
+-- -- sudo write
 -- com! -bar W exe 'w !sudo tee >/dev/null %:p:S' | setl nomod
