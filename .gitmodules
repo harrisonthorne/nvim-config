@@ -1,0 +1,63 @@
+[submodule "pack/plugins/start/wpgtk.vim"]
+	path = pack/plugins/start/wpgtk.vim
+	url = https://github.com/deviantfero/wpgtk.vim
+[submodule "pack/plugins/start/vim-table-mode"]
+	path = pack/plugins/start/vim-table-mode
+	url = https://github.com/dhruvasagar/vim-table-mode
+[submodule "pack/plugins/start/vim-easymotion"]
+	path = pack/plugins/start/vim-easymotion
+	url = https://github.com/easymotion/vim-easymotion
+[submodule "pack/plugins/start/pandoc-preview.vim"]
+	path = pack/plugins/start/pandoc-preview.vim
+	url = https://github.com/harrisonthorne/pandoc-preview.vim
+[submodule "pack/plugins/start/vim-snippets"]
+	path = pack/plugins/start/vim-snippets
+	url = https://github.com/honza/vim-snippets
+[submodule "pack/plugins/start/fzf"]
+	path = pack/plugins/start/fzf
+	url = https://github.com/junegunn/fzf
+[submodule "pack/plugins/start/fzf.vim"]
+	path = pack/plugins/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+[submodule "pack/plugins/start/emmet-vim"]
+	path = pack/plugins/start/emmet-vim
+	url = https://github.com/mattn/emmet-vim
+[submodule "pack/plugins/start/vim-startify"]
+	path = pack/plugins/start/vim-startify
+	url = https://github.com/mhinz/vim-startify
+[submodule "pack/plugins/start/nvim-lspconfig"]
+	path = pack/plugins/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig
+[submodule "pack/plugins/start/completion-nvim"]
+	path = pack/plugins/start/completion-nvim
+	url = https://github.com/nvim-lua/completion-nvim
+[submodule "pack/plugins/start/diagnostic-nvim"]
+	path = pack/plugins/start/diagnostic-nvim
+	url = https://github.com/nvim-lua/diagnostic-nvim
+[submodule "pack/plugins/start/vim-smoothie"]
+	path = pack/plugins/start/vim-smoothie
+	url = https://github.com/psliwka/vim-smoothie
+[submodule "pack/plugins/start/vim-grammarous"]
+	path = pack/plugins/start/vim-grammarous
+	url = https://github.com/rhysd/vim-grammarous
+[submodule "pack/plugins/start/vim-polyglot"]
+	path = pack/plugins/start/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
+[submodule "pack/plugins/start/vim-abolish"]
+	path = pack/plugins/start/vim-abolish
+	url = https://github.com/tpope/vim-abolish
+[submodule "pack/plugins/start/vim-coloresque"]
+	path = pack/plugins/start/vim-coloresque
+	url = https://github.com/gorodinskiy/vim-coloresque
+[submodule "pack/plugins/start/vim-commentary"]
+	path = pack/plugins/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule "pack/plugins/start/vim-fugitive"]
+	path = pack/plugins/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "pack/plugins/start/auto-pairs"]
+	path = pack/plugins/start/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs
+[submodule "pack/plugins/start/vim-gitgutter"]
+	path = pack/plugins/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter

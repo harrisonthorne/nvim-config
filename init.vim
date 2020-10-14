@@ -2,28 +2,6 @@ filetype on
 filetype plugin indent on
 syntax on
 
-call plug#begin('~/.local/share/nvim/plugged')
-Plug 'airblade/vim-gitgutter'
-Plug 'deviantfero/wpgtk.vim'
-Plug 'dhruvasagar/vim-table-mode'       " Tables!
-Plug 'easymotion/vim-easymotion'        " EasyMotion
-Plug 'harrisonthorne/pandoc-preview.vim'
-Plug 'honza/vim-snippets'               " Snippets
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'mattn/emmet-vim'                  " Emmet
-Plug 'mhinz/vim-startify'               " Startify
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'psliwka/vim-smoothie'
-Plug 'rhysd/vim-grammarous'
-Plug 'sheerun/vim-polyglot'             " languages
-Plug 'tpope/vim-abolish'                " camelCase to snake_case
-Plug 'gorodinskiy/vim-coloresque'
-Plug 'tpope/vim-commentary'             " commentary
-Plug 'tpope/vim-fugitive'               " Vim fugitive
-" Plug 'dense-analysis/ale'                         " ale
-call plug#end()
-
 lua require('init')
 
 let g:startify_custom_header = startify#fortune#cowsay('', '═','║','╔','╗','╝','╚')
@@ -61,75 +39,48 @@ hi! ColorColumn guibg=52 ctermbg=52
 
 hi! Error guibg=NONE ctermbg=NONE guifg=red ctermfg=196 gui=bold cterm=bold
 hi! Warning guibg=NONE ctermbg=NONE guifg=yellow ctermfg=226 gui=bold cterm=bold
-hi! Info guibg=NONE ctermbg=NONE guifg=51 ctermfg=51 gui=bold cterm=bold
+hi! Info guibg=NONE ctermbg=NONE guifg=cyan ctermfg=51 gui=bold cterm=bold
 
 hi! link ErrorMsg Error
 hi! link WarningMsg Warning
 hi! link InfoMsg Info
 
-" Coc highlights
-hi link CocUnderline InfoMsg
-hi link CocErrorHighlight ErrorMsg
-hi link CocWarningHighlight WarningMsg
-hi link CocInfoHighlight InfoMsg
+" LSP highlights
+hi! link LspDiagnosticsError Error
+hi! link LspDiagnosticsWarning Warning
+hi! link LspDiagnosticsHint Info
 
-hi link CocErrorSign ErrorMsg
-hi link CocWarningSign WarningMsg
-hi link CocInfoSign InfoMsg
-hi link CocError ErrorMsg
-hi link CocWarning WarningMsg
-hi link CocInfo InfoMsg
-hi CocInfoSign guibg=NONE ctermbg=NONE guifg=cyan ctermfg=51 gui=bold cterm=bold term=bold
-hi CocStyleErrorSign guibg=NONE ctermbg=NONE guifg=red ctermfg=196 gui=bold cterm=bold term=bold
-hi CocStyleWarningSign guibg=NONE ctermbg=NONE guifg=yellow ctermfg=226 gui=bold cterm=bold term=bold
-
-" ALE highlights
-hi! link ALEError ErrorMsg
-hi! link ALEWarning WarningMsg
-hi! link ALEInfo InfoMsg
-hi! link ALEErrorLine ErrorMsg
-hi! link ALEWarningLine WarningMsg
-hi! link ALEInfoLine InfoMsg
-hi! link ALEErrorSign ErrorMsg
-hi! link ALEWarningSign WarningMsg
-hi! link ALEInfoSign InfoMsg
-hi! link ALEErrorSignLineNr ErrorMsg
-hi! link ALEWarningSignLineNr WarningMsg
-hi! link ALEInfoSignLineNr InfoMsg
-hi! ALEInfoSign guibg=NONE ctermbg=NONE guifg=cyan ctermfg=51 gui=bold cterm=bold term=bold
-hi! ALEStyleErrorSign guibg=NONE ctermbg=NONE guifg=red ctermfg=196 gui=bold cterm=bold term=bold
-hi! ALEStyleWarningSign guibg=NONE ctermbg=NONE guifg=yellow ctermfg=226 gui=bold cterm=bold term=bold
-
-hi! VertSplit guibg=NONE guifg=8 gui=NONE ctermbg=NONE ctermfg=8 cterm=NONE
-hi! StatusLineNC cterm=NONE ctermbg=NONE ctermfg=8 guibg=NONE guifg=8
-hi! StatusLine cterm=NONE ctermbg=NONE ctermfg=8 guibg=NONE guifg=8
-hi! Normal ctermbg=NONE guibg=NONE
-hi! NonText cterm=NONE gui=NONE ctermbg=NONE guibg=NONE
 hi! Comment ctermbg=NONE guibg=NONE ctermfg=12 guifg=12
-hi! SpecialComment ctermfg=12 ctermbg=NONE ctermfg=12 guibg=NONE cterm=bold,italic gui=bold,italic term=bold,italic
 hi! Delimiter ctermbg=NONE guibg=NONE
 hi! Exception ctermbg=NONE guibg=NONE
-hi! SpecialChar ctermfg=13 guifg=13 ctermbg=NONE guibg=NONE
-hi! Special ctermfg=9 guifg=9
-hi! Typedef ctermbg=NONE guibg=NONE
-hi! Type ctermfg=10 guifg=10
-hi! PreProc ctermfg=14 guifg=14
-hi! Whitespace ctermfg=8 guifg=8
-hi! Title cterm=bold gui=bold ctermfg=13 guifg=13
-hi! Search ctermfg=15 guifg=15 ctermbg=240 guibg=240 cterm=italic gui=italic
 hi! IncSearch cterm=bold,italic,reverse gui=bold,italic,reverse
+hi! NonText cterm=NONE gui=NONE ctermbg=NONE guibg=NONE
+hi! Normal ctermbg=NONE guibg=NONE
+hi! PreProc ctermfg=14 guifg=14
+hi! Search ctermfg=15 guifg=15 ctermbg=240 guibg=240 cterm=italic gui=italic
+hi! Special ctermfg=9 guifg=9
+hi! SpecialChar ctermfg=13 guifg=13 ctermbg=NONE guibg=NONE
+hi! SpecialComment ctermfg=12 ctermbg=NONE ctermfg=12 guibg=NONE cterm=bold,italic gui=bold,italic term=bold,italic
+hi! StatusLine cterm=NONE ctermbg=NONE ctermfg=8 guibg=NONE guifg=8
+hi! StatusLineNC cterm=NONE ctermbg=NONE ctermfg=8 guibg=NONE guifg=8
+hi! Title cterm=bold gui=bold ctermfg=13 guifg=13
+hi! Type ctermfg=10 guifg=10
+hi! Typedef ctermbg=NONE guibg=NONE
+hi! VertSplit guibg=NONE guifg=8 gui=NONE ctermbg=NONE ctermfg=8 cterm=NONE
+hi! VirtualText cterm=italic gui=italic ctermfg=4 guifg=4 ctermbg=NONE guibg=NONE
 hi! Visual ctermbg=240 guibg=240 ctermfg=15 guifg=15
+hi! Whitespace ctermfg=8 guifg=8
 
 hi! link javaScriptLineComment Comment
-hi! CocRustChainingHint cterm=italic gui=italic ctermfg=4 guifg=4 ctermbg=NONE guibg=NONE
 
-hi DiffAdd ctermbg=NONE guibg=NONE ctermfg=48 guifg=green
-hi DiffChange ctermbg=NONE guibg=NONE ctermfg=214 guifg=orange
-hi DiffDelete ctermbg=NONE guibg=NONE ctermfg=196 guifg=red
-hi DiffText ctermbg=NONE guibg=NONE ctermfg=214 guifg=orange cterm=undercurl gui=undercurl
+hi! DiffAdd ctermbg=NONE guibg=NONE ctermfg=48 guifg=green
+hi! DiffChange ctermbg=NONE guibg=NONE ctermfg=214 guifg=orange
+hi! DiffDelete ctermbg=NONE guibg=NONE ctermfg=196 guifg=red
+hi! DiffText ctermbg=NONE guibg=NONE ctermfg=214 guifg=orange cterm=undercurl gui=undercurl
 
-hi diffAdded ctermbg=NONE guibg=NONE ctermfg=48 guifg=green
-hi diffRemoved ctermbg=NONE guibg=NONE ctermfg=196 guifg=orange
+hi! link GitGutterAdd DiffAdd
+hi! link GitGutterChange DiffChange
+hi! link GitGutterDelete DiffDelete
 
 hi Pmenu cterm=NONE gui=NONE ctermbg=8 ctermfg=14 guibg=8 guifg=14
 hi PmenuSel cterm=bold gui=bold ctermbg=6 ctermfg=8 guibg=6 guifg=8
@@ -212,7 +163,6 @@ endfunction
 
 function! AutoSave()
     silent! wa
-    call coc#refresh()
 endfunction
 
 "" Status bar
@@ -355,3 +305,8 @@ hi TabLineSel cterm=bold ctermfg=15 guifg=15 ctermbg=NONE guibg=NONE
 
 " sudo write
 com! -bar W exe 'w !sudo tee >/dev/null %:p:S' | setl nomod
+
+call sign_define("LspDiagnosticsErrorSign", {"text" : "X", "texthl" : "LspDiagnosticsError"})
+call sign_define("LspDiagnosticsWarningSign", {"text" : "!", "texthl" : "LspDiagnosticsWarning"})
+call sign_define("LspDiagnosticsInformationSign", {"text" : "i", "texthl" : "LspDiagnosticsInformation"})
+call sign_define("LspDiagnosticsHintSign", {"text" : "?", "texthl" : "LspDiagnosticsHint"})

@@ -12,7 +12,7 @@ g.ale_sign_highlight_linenrs = 1
 
 g.fzf_preview_window = 'right:50%'
 g.gitgutter_map_keys = 0
-g.gitgutter_sign_allow_clobber = 1
+g.gitgutter_sign_allow_clobber = 0
 g.pandoc_preview_pdf_cmd = "zathura"
 g.startify_session_persistence = 1
 g.tex_conceal = ""
