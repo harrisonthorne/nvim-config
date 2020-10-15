@@ -220,24 +220,17 @@ set laststatus=2
 set noshowmode
 set statusline=%!ActiveStatus()
 
-function! CocCustomStatus() abort
-    let info = get(b:, 'coc_diagnostic_info', {})
-    if empty(info)
-        return ''
+function! LspCustomStatus() abort
+    if luaeval('#vim.lsp.buf_get_clients() > 0')
+        return luaeval("require('lsp-status').status()")
     endif
-    let msgs = []
-    if get(info, 'error', 0)
-        call add(msgs, info['error']." errors")
-    endif
-    if get(info, 'warning', 0)
-        call add(msgs, info['warning']." warnings")
-    endif
-    return trim(get(g:, "coc_status", "") . "    " . join(msgs, ", "))
+
+    return ''
 endfunction
 
 function! ActiveStatus()
     let statusline="%="
-    let statusline.="%#Inactive# ".CocCustomStatus()." "
+    let statusline.="%#Inactive# ".LspCustomStatus()." "
     let statusline.="  %#CustomFile# %f %M %r"
     let statusline.="  %#CustomPercentage# %3p%%"
     let statusline.="  %#CustomLineCol# %3l:%3c"
