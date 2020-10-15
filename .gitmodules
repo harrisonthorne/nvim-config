@@ -10,9 +10,6 @@
 [submodule "pack/plugins/start/pandoc-preview.vim"]
 	path = pack/plugins/start/pandoc-preview.vim
 	url = https://github.com/harrisonthorne/pandoc-preview.vim
-[submodule "pack/plugins/start/vim-snippets"]
-	path = pack/plugins/start/vim-snippets
-	url = https://github.com/honza/vim-snippets
 [submodule "pack/plugins/start/fzf.vim"]
 	path = pack/plugins/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
@@ -34,12 +31,6 @@
 [submodule "pack/plugins/start/vim-grammarous"]
 	path = pack/plugins/start/vim-grammarous
 	url = https://github.com/rhysd/vim-grammarous
-[submodule "pack/plugins/start/vim-polyglot"]
-	path = pack/plugins/start/vim-polyglot
-	url = https://github.com/sheerun/vim-polyglot
-[submodule "pack/plugins/start/vim-coloresque"]
-	path = pack/plugins/start/vim-coloresque
-	url = https://github.com/gorodinskiy/vim-coloresque
 [submodule "pack/plugins/start/vim-commentary"]
 	path = pack/plugins/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary
@@ -61,3 +52,6 @@
 [submodule "pack/plugins/start/vim-vsnip-integ"]
 	path = pack/plugins/start/vim-vsnip-integ
 	url = https://github.com/hrsh7th/vim-vsnip-integ
+[submodule "pack/plugins/start/nvim-treesitter"]
+	path = pack/plugins/start/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter
