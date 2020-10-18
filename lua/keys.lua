@@ -11,9 +11,7 @@ map('', "<bslash>", "<Plug>(easymotion-prefix)", {})
 map('n', "j", "gj", { noremap = true, silent = true })
 map('n', "k", "gk", { noremap = true, silent = true })
 
--- map('i', "<expr> <C-n>", "coc#refresh()", { noremap = true, silent = true})
 -- FZF/skim
-
 map('', "<C-p>", ":Files<CR>", {})
 
 -- todo list
@@ -47,15 +45,14 @@ map('', "<leader>W", ":windo set nowinfixwidth nowinfixheight<CR>", { noremap = 
 map('', "<leader>tw", ":%s/\\s\\+$//e<CR>:noh<CR>", { noremap = true, silent = true})
 
 -- tab shortcuts
-map('', "<leader>tc", ":tabc<CR>", { noremap = true })
-map('', "<leader>te", ":tabe<CR>", { noremap = true })
 
 -- splitting shortcuts
-map('', "<leader>nv", ":vs<CR>", { noremap = true })
-map('', "<leader>ns", ":sp<CR>", { noremap = true })
-map('', "<leader>v", ":vs<CR>:FZF<CR>", { noremap = true })
-map('', "<leader>s", ":sp<CR>:FZF<CR>", { noremap = true })
-map('', "<leader>t", ":tabe<CR>:FZF<CR>", { noremap = true })
+map('n', "<leader>vn", ":vert new<CR>", { noremap = true })
+map('n', "<leader>sn", ":new<CR>", { noremap = true })
+map('n', "<leader>tn", ":tabnew<CR>", { noremap = true })
+map('n', "<leader>vv", ":vs<CR>:Files<CR>", { noremap = true })
+map('n', "<leader>ss", ":sp<CR>:Files<CR>", { noremap = true })
+map('n', "<leader>tt", ":tabnew<CR>:Files<CR>", { noremap = true })
 
 -- Fugitive shortcuts
 map('', "<leader>gg", ":Git", { noremap = true })
@@ -68,28 +65,37 @@ map('n', "<leader>goi", ":!go install<CR>", { noremap = true })
 map('n', "<leader>gor", ":!go run *.go", { noremap = true })
 
 -- Lanuage Server shortcuts
-map('n', "<leader>ca", ":CocAction<CR>", { noremap = true, silent = true})
-map('n', "<leader>cc", ":CocCommand<space>", { noremap = true, silent = true})
-map('n', "<leader>cr", "<Plug>(coc-rename)", { silent = true })
-map('n', "<leader>cx", "<Plug>(coc-references)", { silent = true })
-map('n', "<leader>ct", "<Plug>(coc-type-definition)", { silent = true })
-map('n', "<leader>cf", "<Plug>(coc-format)", { silent = true })
-map('n', "<leader>cq", "<Plug>(coc-fix-current)", { silent = true })
-map('n', "<leader>ci", "<Plug>(coc-diagnostic-info)", { silent = true })
-map('n', "<leader>cn", "<Plug>(coc-diagnostic-next)", { silent = true })
-map('n', "<leader>cp", "<Plug>(coc-diagnostic-prev)", { silent = true })
-map('n', "<leader>/", "<Plug>(coc-definition)", { silent = true })
-map('n', "<leader>?", ":call CocAction('doHover')<CR>", { noremap = true, silent = true})
-map('n', "K", ":call CocAction('doHover')<CR>", { noremap = true, silent = true})
+map('i', "<C-n>", "<cmd>lua vim.lsp.buf.completion()<cr>", { noremap = true, silent = true})
+map('n', "<leader>xa", "<cmd>lua vim.lsp.buf.code_action()<cr>", { noremap = true, silent = true})
+map('n', "<leader>xr", "<cmd>lua vim.lsp.buf.rename()<cr>", { silent = true })
+map('n', "<leader>xe", "<cmd>lua vim.lsp.buf.references()<cr>", { silent = true })
+map('n', "<leader>xd", "<cmd>lua vim.lsp.buf.declaration()<cr>", { silent = true })
+map('n', "<leader>xf", "<cmd>lua vim.lsp.buf.formatting()<cr>", { silent = true })
+map('n', "<leader>xi", "<cmd>OpenDiagnostic<cr>", { silent = true })
+map('n', "<leader>xn", "<cmd>NextDiagnosticCycle<cr>", { silent = true })
+map('n', "<leader>xp", "<cmd>PrevDiagnosticCycle<cr>", { silent = true })
+map('n', "<leader>/", "<cmd>lua vim.lsp.buf.definition()<cr>", { silent = true })
+map('n', "<leader>?", "<cmd>lua vim.lsp.buf.hover()<cr>", { noremap = true, silent = true})
+map('n', "K", "<cmd>lua vim.lsp.buf.hover()<cr>", { noremap = true, silent = true})
 
-map('n', "<leader>xt", ":tabe<CR>:terminal<CR>i", { noremap = true, silent = true})
-map('n', "<leader>xv", ":vs<CR>:terminal<CR>i", { noremap = true, silent = true})
+-- Snippets
+-- (expand or jump)
+map('i', "<c-l>", "vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<c-l>'", { expr = true })
+
+-- (jump forward or backward)
+map('i', "<c-j>", "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<c-j>'", { expr = true }) 
+map('i', "<c-k>", "vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<c-k>'", { expr = true }) 
+
+-- Terminal shortcuts
+map('n', "<leader>tx", ":tabnew<CR>:terminal<CR>i", { noremap = true, silent = true})
+map('n', "<leader>vx", ":vs<CR>:terminal<CR>i", { noremap = true, silent = true})
+map('n', "<leader>sx", ":sp<CR>:terminal<CR>i", { noremap = true, silent = true})
 map('n', "<leader>xx", ":terminal<CR>i", { noremap = true, silent = true})
-map('n', "<leader>xs", ":sp<CR>:terminal<CR>i", { noremap = true, silent = true})
 
 -- Misc shortcuts
 map('', "<leader>e", ":Lex<CR>", { noremap = true, silent = true})
 map('', "<leader>q", ":q<CR>", { noremap = true, silent = true})
+map('', "<leader>tq", ":tabc<CR>", { noremap = true })
 map('', "<leader>pwd", ":pwd<CR>", { noremap = true, silent = true})
 map('', "<leader>pp", ":!pandoc --filter pandoc-citeproc \"%\" -o \"%.pdf\"<CR>", { noremap = true, silent = true})
 map('', "<leader>pd", ":!pandoc --filter pandoc-citeproc \"%\" -o \"%.docx\"<CR>", { noremap = true, silent = true})
@@ -105,20 +111,17 @@ map('n', "<leader>dt", ":diffthis<CR>", { noremap = true })
 map('n', "<leader>do", ":diffoff<CR>:set noscrollbind<CR>:set nocursorbind<CR>", { noremap = true })
 
 -- easy lnext, cnext, etc
-map('n', "<leader>zn", ":lnext<CR>", { noremap = true })
-map('n', "<leader>zp", ":lprev<CR>", { noremap = true })
-map('n', "<leader>zN", ":lnfile<CR>", { noremap = true })
-map('n', "<leader>zP", ":lpfile<CR>", { noremap = true })
-map('n', "<leader>xn", ":cnext<CR>", { noremap = true })
-map('n', "<leader>xp", ":cprev<CR>", { noremap = true })
-map('n', "<leader>xN", ":cnfile<CR>", { noremap = true })
-map('n', "<leader>xP", ":cpfile<CR>", { noremap = true })
+map('n', "<leader>mn", ":lnext<CR>", { noremap = true })
+map('n', "<leader>mp", ":lprev<CR>", { noremap = true })
+map('n', "<leader>mN", ":lnfile<CR>", { noremap = true })
+map('n', "<leader>mP", ":lpfile<CR>", { noremap = true })
+map('n', "<leader>cn", ":cnext<CR>", { noremap = true })
+map('n', "<leader>cp", ":cprev<CR>", { noremap = true })
+map('n', "<leader>cN", ":cnfile<CR>", { noremap = true })
+map('n', "<leader>cP", ":cpfile<CR>", { noremap = true })
 
 -- buffer shortcuts
 map('n', "<leader>b", ":ls<CR>:b<space>", { noremap = true })
-
--- jump to floating window
-map('n', "<leader>f", "<plug>(coc-float-jump)", {})
 
 map('i', "jj", "<esc>", { noremap = true })
 map('i', "fj", "<esc>", { noremap = true })
