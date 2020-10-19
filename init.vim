@@ -17,13 +17,14 @@ let g:startify_lists = [
 augroup auto_commands
     autocmd!
     autocmd FileType markdown call SetupMarkdown()
-    autocmd FileType json syntax match Comment +\/\/.\+$+
     autocmd BufWinLeave * silent! mkview
     autocmd BufWinEnter * silent! loadview
     autocmd VimLeave * call SaveLastSession()
     autocmd BufEnter * checktime
     autocmd CursorHold * nested call AutoSave()
+    autocmd BufEnter * lua require'completion'.on_attach()
 augroup END
+
 
 " change gutter (SignColumn) color to clear
 hi! SignColumn guibg=NONE ctermbg=NONE
@@ -250,10 +251,6 @@ augroup status
     autocmd!
     autocmd BufEnter,WinEnter,BufRead,BufWinEnter * :setlocal statusline=%!ActiveStatus()
     autocmd BufLeave,WinLeave * :setlocal statusline=%!InactiveStatus()
-augroup END
-
-augroup emmet
-    autocmd! FileType html EmmetInstall
 augroup END
 
 "" Tab line

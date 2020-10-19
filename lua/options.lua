@@ -3,12 +3,7 @@ local o = vim.o
 
 g.mapleader = ','
 
-g.ale_sign_error = 'X'
-g.ale_sign_warning = '!'
-g.ale_sign_info = 'i'
-g.ale_sign_style_error = 'S'
-g.ale_sign_style_warning = 'S'
-g.ale_sign_highlight_linenrs = 1
+g.space_before_virtual_text = 2
 
 g.fzf_preview_window = 'right:50%'
 g.gitgutter_map_keys = 0
@@ -16,8 +11,10 @@ g.gitgutter_sign_allow_clobber = 0
 g.pandoc_preview_pdf_cmd = "zathura"
 g.startify_session_persistence = 1
 g.tex_conceal = ""
-g.user_emmet_install_global = 0
-g.user_emmet_leader_key = ','
+g.completion_confirm_key = '<C-y>'
+g.completion_enable_snippet = 'vim-vsnip'
+g.completion_matching_ignore_case = 1
+g.completion_auto_change_source = 1
 
 o.autowriteall = true
 o.autoread = true
@@ -25,8 +22,8 @@ o.background = "dark"
 o.breakindent = true -- Indents word-wrapped lines as much as the line above
 o.clipboard = "unnamedplus"
 o.cmdheight = 2
-o.complete = "kspell" -- spell check
-o.completeopt = "preview"
+o.complete = ".,w,b,u,t,kspell" -- spell check
+o.completeopt = "menuone,noinsert,noselect"
 o.conceallevel = 1
 o.diffopt = "hiddenoff"
 o.equalalways = true
@@ -49,7 +46,7 @@ o.eb = false -- no error bells
 o.wb = false
 o.vb = false
 o.number = true
-o.rnu = true
+o.relativenumber = true
 o.shiftwidth = 4
 o.shortmess = "caFTW"
 o.si = true  -- Smart indent

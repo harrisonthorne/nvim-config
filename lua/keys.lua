@@ -65,7 +65,7 @@ map('n', "<leader>goi", ":!go install<CR>", { noremap = true })
 map('n', "<leader>gor", ":!go run *.go", { noremap = true })
 
 -- Lanuage Server shortcuts
-map('i', "<C-n>", "<cmd>lua vim.lsp.buf.completion()<cr>", { noremap = true, silent = true})
+map('i', "<c-n>", "<cmd>lua vim.lsp.buf.completion()<cr>", { noremap = true, silent = true})
 map('n', "<leader>xa", "<cmd>lua vim.lsp.buf.code_action()<cr>", { noremap = true, silent = true})
 map('n', "<leader>xr", "<cmd>lua vim.lsp.buf.rename()<cr>", { silent = true })
 map('n', "<leader>xe", "<cmd>lua vim.lsp.buf.references()<cr>", { silent = true })
@@ -78,13 +78,13 @@ map('n', "<leader>/", "<cmd>lua vim.lsp.buf.definition()<cr>", { silent = true }
 map('n', "<leader>?", "<cmd>lua vim.lsp.buf.hover()<cr>", { noremap = true, silent = true})
 map('n', "K", "<cmd>lua vim.lsp.buf.hover()<cr>", { noremap = true, silent = true})
 
--- Snippets
--- (expand or jump)
-map('i', "<c-l>", "vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<c-l>'", { expr = true })
+map('i', "<c-h>", "<plug>(completion_prev_source)", {}) -- use <c-k> to switch to next completion
+map('i', "<c-l>", "<plug>(completion_next_source)", {}) -- use <c-j> to switch to previous completion
 
--- (jump forward or backward)
+-- Completion/snippets
 map('i', "<c-j>", "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<c-j>'", { expr = true }) 
 map('i', "<c-k>", "vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<c-k>'", { expr = true }) 
+map('i', "<c-;>", "vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<c-;>'", { expr = true })
 
 -- Terminal shortcuts
 map('n', "<leader>tx", ":tabnew<CR>:terminal<CR>i", { noremap = true, silent = true})
