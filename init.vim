@@ -13,6 +13,17 @@ let g:startify_lists = [
             \ { 'type': 'commands',  'header': ['   Commands']             },
             \ ]
 
+
+function! SynStack()
+    let l:s = synID(line('.'), col('.'), 1)                                       
+    echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+endfunc
+
+" get highlight under cursor
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 " autocommands
 augroup auto_commands
     autocmd!
@@ -50,6 +61,22 @@ hi! link InfoMsg Info
 hi! link LspDiagnosticsError Error
 hi! link LspDiagnosticsWarning Warning
 hi! link LspDiagnosticsHint Info
+hi! link LspDiagnosticsInformation Info
+
+hi! link LspDiagnosticsErrorSign Error
+hi! link LspDiagnosticsWarningSign Warning
+hi! link LspDiagnosticsHintSign Info
+hi! link LspDiagnosticsInformationSign Info
+
+hi! link LspDiagnosticsErrorFloating Error
+hi! link LspDiagnosticsWarningFloating Warning
+hi! link LspDiagnosticsHintFloating Info
+hi! link LspDiagnosticsInformationFloating Info
+
+hi! link LspDiagnosticsUnderlineError Error
+hi! link LspDiagnosticsUnderlineWarning Warning
+hi! link LspDiagnosticsUnderlineHint Info
+hi! link LspDiagnosticsUnderlineInformation Info
 
 hi! Comment ctermbg=NONE guibg=NONE ctermfg=12 guifg=12
 hi! Delimiter ctermbg=NONE guibg=NONE
@@ -83,20 +110,20 @@ hi! link GitGutterAdd DiffAdd
 hi! link GitGutterChange DiffChange
 hi! link GitGutterDelete DiffDelete
 
-hi Pmenu cterm=NONE gui=NONE ctermbg=8 ctermfg=14 guibg=8 guifg=14
-hi PmenuSel cterm=bold gui=bold ctermbg=6 ctermfg=8 guibg=6 guifg=8
-hi PmenuSbar cterm=NONE gui=NONE ctermbg=0 ctermfg=0 guibg=0 guifg=0
-hi PmenuThumb cterm=NONE gui=NONE ctermbg=5 ctermfg=5 guibg=5 guifg=5
+hi! Pmenu cterm=NONE gui=NONE ctermbg=8 ctermfg=14 guibg=8 guifg=14
+hi! PmenuSel cterm=bold gui=bold ctermbg=6 ctermfg=8 guibg=6 guifg=8
+hi! PmenuSbar cterm=NONE gui=NONE ctermbg=0 ctermfg=0 guibg=0 guifg=0
+hi! PmenuThumb cterm=NONE gui=NONE ctermbg=5 ctermfg=5 guibg=5 guifg=5
 
-hi SpellBad ctermfg=196 ctermbg=NONE guifg=196 guibg=NONE cterm=italic,undercurl gui=italic,undercurl
-hi SpellCap ctermfg=201 ctermbg=NONE guifg=201 guibg=NONE
-hi SpellRare ctermfg=214 ctermbg=NONE guifg=214 guibg=NONE cterm=italic gui=italic
+hi! SpellBad ctermfg=196 ctermbg=NONE guifg=196 guibg=NONE cterm=italic,undercurl gui=italic,undercurl
+hi! SpellCap ctermfg=201 ctermbg=NONE guifg=201 guibg=NONE
+hi! SpellRare ctermfg=214 ctermbg=NONE guifg=214 guibg=NONE cterm=italic gui=italic
 hi! link SpellLocal SpellRare
 hi! Todo ctermfg=214 ctermbg=NONE guifg=214 guibg=NONE cterm=italic,bold gui=italic,bold
 
-hi SpecialKey ctermfg=14 guifg=14
-hi Directory ctermfg=14 guifg=14
-hi Question ctermfg=10 guifg=10
+hi! SpecialKey ctermfg=14 guifg=14
+hi! Directory ctermfg=14 guifg=14
+hi! Question ctermfg=10 guifg=10
 hi! link MoreMsg Question
 hi! link NvimInternalError Error
 
@@ -168,13 +195,13 @@ endfunction
 
 "" Status bar
 
-hi CustomFile cterm=bold gui=bold ctermfg=12 guifg=12 ctermbg=NONE guibg=NONE
-hi CustomPercentage cterm=bold gui=bold ctermfg=10 guifg=10 ctermbg=NONE guibg=NONE
-hi CustomLineCol cterm=bold gui=bold ctermfg=11 guifg=11 ctermbg=NONE guibg=NONE
-hi CustomFiletype cterm=bold gui=bold ctermfg=9 guifg=9 ctermbg=NONE guibg=NONE
-hi CustomGitBranch cterm=bold gui=bold ctermfg=13 guifg=13 ctermbg=NONE guibg=NONE
-hi CustomMode cterm=bold gui=bold ctermfg=14 guifg=14 ctermbg=NONE guibg=NONE
-hi Inactive cterm=italic gui=italic ctermfg=4 guifg=4 ctermbg=NONE guibg=NONE
+hi! CustomFile cterm=bold gui=bold ctermfg=12 guifg=12 ctermbg=NONE guibg=NONE
+hi! CustomPercentage cterm=bold gui=bold ctermfg=10 guifg=10 ctermbg=NONE guibg=NONE
+hi! CustomLineCol cterm=bold gui=bold ctermfg=11 guifg=11 ctermbg=NONE guibg=NONE
+hi! CustomFiletype cterm=bold gui=bold ctermfg=9 guifg=9 ctermbg=NONE guibg=NONE
+hi! CustomGitBranch cterm=bold gui=bold ctermfg=13 guifg=13 ctermbg=NONE guibg=NONE
+hi! CustomMode cterm=bold gui=bold ctermfg=14 guifg=14 ctermbg=NONE guibg=NONE
+hi! Inactive cterm=italic gui=italic ctermfg=4 guifg=4 ctermbg=NONE guibg=NONE
 
 let g:currentmode={
     \ 'n'  : 'n',
