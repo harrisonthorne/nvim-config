@@ -27,15 +27,14 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 " autocommands
 augroup auto_commands
     autocmd!
-    autocmd FileType markdown call SetupMarkdown()
+    autocmd FileType markdown,pandoc call SetupMarkdown()
+    " autocmd FileType rust setlocal formatprg="rustfmt"
     autocmd BufWinLeave * silent! mkview
     autocmd BufWinEnter * silent! loadview
-    autocmd VimLeave * call SaveLastSession()
     autocmd BufEnter * checktime
     autocmd CursorHold * nested call AutoSave()
     autocmd BufEnter * lua require'completion'.on_attach()
 augroup END
-
 
 " change gutter (SignColumn) color to clear
 hi! SignColumn guibg=NONE ctermbg=NONE
@@ -58,20 +57,20 @@ hi! link WarningMsg Warning
 hi! link InfoMsg Info
 
 " LSP highlights
-hi! link LspDiagnosticsError Error
-hi! link LspDiagnosticsWarning Warning
-hi! link LspDiagnosticsHint Info
-hi! link LspDiagnosticsInformation Info
+hi! link LspDiagnosticsDefaultError Error
+hi! link LspDiagnosticsDefaultWarning Warning
+hi! link LspDiagnosticsDefaultHint Info
+hi! link LspDiagnosticsDefaultInformation Info
 
 hi! link LspDiagnosticsErrorSign Error
 hi! link LspDiagnosticsWarningSign Warning
 hi! link LspDiagnosticsHintSign Info
 hi! link LspDiagnosticsInformationSign Info
 
-hi! link LspDiagnosticsErrorFloating Error
-hi! link LspDiagnosticsWarningFloating Warning
-hi! link LspDiagnosticsHintFloating Info
-hi! link LspDiagnosticsInformationFloating Info
+hi! link LspDiagnosticsVirtualTextError Error
+hi! link LspDiagnosticsVirtualTextWarning Warning
+hi! link LspDiagnosticsVirtualTextHint Info
+hi! link LspDiagnosticsVirtualTextInformation Info
 
 hi! link LspDiagnosticsUnderlineError Error
 hi! link LspDiagnosticsUnderlineWarning Warning
@@ -79,6 +78,7 @@ hi! link LspDiagnosticsUnderlineHint Info
 hi! link LspDiagnosticsUnderlineInformation Info
 
 hi! Comment ctermbg=NONE guibg=NONE ctermfg=12 guifg=12
+hi! Conceal ctermbg=0
 hi! Delimiter ctermbg=NONE guibg=NONE
 hi! Exception ctermbg=NONE guibg=NONE
 hi! IncSearch cterm=bold,italic,reverse gui=bold,italic,reverse
@@ -127,9 +127,10 @@ hi! Question ctermfg=10 guifg=10
 hi! link MoreMsg Question
 hi! link NvimInternalError Error
 
-fu! SaveLastSession()
-    execute 'mksession! ' . '~/.vim/session/previous'
-endfu
+sign define LspDiagnosticsSignError text=X texthl=LspDiagnosticsSignError linehl= numhl=
+sign define LspDiagnosticsSignWarning text=! texthl=LspDiagnosticsSignWarning linehl= numhl=
+sign define LspDiagnosticsSignInformation text=i texthl=LspDiagnosticsSignInformation linehl= numhl=
+sign define LspDiagnosticsSignHint text=h texthl=LspDiagnosticsSignHint linehl= numhl=
 
 fu! UpdateGitInfo()
     let b:custom_git_branch = ''
@@ -183,8 +184,10 @@ function! MarkdownFoldText()
 endfunction
 
 function! SetupMarkdown()
-    setlocal expandtab 
-    setlocal tw=60 
+    setlocal noexpandtab 
+    " setlocal tw=60 
+    setlocal shiftwidth=4
+    setlocal tabstop=4
     setlocal foldtext=MarkdownFoldText()
     setlocal spell
 endfunction
@@ -227,8 +230,8 @@ let g:currentmode={
 
 function! CurrentMode() abort
     let l:modecurrent = mode()
-    " use get() -> fails safely, since ^V doesn't seem to register
-    " 3rd arg is used when return of mode() == 0, which is case with ^V
+    " use get() -> fails safely, since ^V doesn't seem to register. 3rd arg is
+    " used when return of mode() == 0, which is the case with ^V.
     " thus, ^V fails -> returns 0 -> replaced with 'V Block'
     let l:modelist = tolower(get(g:currentmode, l:modecurrent, 'vb'))
     let l:current_status_mode = l:modelist

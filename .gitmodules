@@ -10,9 +10,6 @@
 [submodule "pack/plugins/start/pandoc-preview.vim"]
 	path = pack/plugins/start/pandoc-preview.vim
 	url = https://github.com/harrisonthorne/pandoc-preview.vim
-[submodule "pack/plugins/start/fzf.vim"]
-	path = pack/plugins/start/fzf.vim
-	url = https://github.com/junegunn/fzf.vim
 [submodule "pack/plugins/start/vim-startify"]
 	path = pack/plugins/start/vim-startify
 	url = https://github.com/mhinz/vim-startify
@@ -22,9 +19,6 @@
 [submodule "pack/plugins/start/completion-nvim"]
 	path = pack/plugins/start/completion-nvim
 	url = https://github.com/nvim-lua/completion-nvim
-[submodule "pack/plugins/start/diagnostic-nvim"]
-	path = pack/plugins/start/diagnostic-nvim
-	url = https://github.com/nvim-lua/diagnostic-nvim
 [submodule "pack/plugins/start/vim-smoothie"]
 	path = pack/plugins/start/vim-smoothie
 	url = https://github.com/psliwka/vim-smoothie
@@ -52,12 +46,24 @@
 [submodule "pack/plugins/start/vim-polyglot"]
 	path = pack/plugins/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
-[submodule "pack/plugins/start/nvim-treesitter"]
-	path = pack/plugins/start/nvim-treesitter
-	url = https://github.com/nvim-treesitter/nvim-treesitter
-[submodule "pack/plugins/start/completion-treesitter"]
-	path = pack/plugins/start/completion-treesitter
-	url = https://github.com/nvim-treesitter/completion-treesitter
 [submodule "pack/plugins/start/completion-buffers"]
 	path = pack/plugins/start/completion-buffers
 	url = https://github.com/steelsojka/completion-buffers
+[submodule "pack/plugins/start/telescope.nvim"]
+	path = pack/plugins/start/telescope.nvim
+	url = https://github.com/nvim-lua/telescope.nvim
+[submodule "pack/plugins/start/popup.nvim"]
+	path = pack/plugins/start/popup.nvim
+	url = https://github.com/nvim-lua/popup.nvim
+[submodule "pack/plugins/start/plenary.nvim"]
+	path = pack/plugins/start/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim
+[submodule "pack/plugins/start/vim-surround"]
+	path = pack/plugins/start/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "pack/plugins/start/vim-pandoc-syntax"]
+	path = pack/plugins/start/vim-pandoc-syntax
+	url = https://github.com/vim-pandoc/vim-pandoc-syntax
+[submodule "pack/plugins/start/vim-pandoc"]
+	path = pack/plugins/start/vim-pandoc
+	url = https://github.com/vim-pandoc/vim-pandoc

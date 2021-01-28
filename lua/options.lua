@@ -1,20 +1,26 @@
 local g = vim.g
 local o = vim.o
+local bo = vim.bo
+local wo = vim.wo
 
 g.mapleader = ','
 
-g.space_before_virtual_text = 2
-
-g.fzf_preview_window = 'right:50%'
-g.gitgutter_map_keys = 0
-g.gitgutter_sign_allow_clobber = 0
-g.pandoc_preview_pdf_cmd = "zathura"
-g.startify_session_persistence = 1
-g.tex_conceal = ""
+g.completion_auto_change_source = 1
 g.completion_confirm_key = '<C-y>'
 g.completion_enable_snippet = 'vim-vsnip'
-g.completion_matching_ignore_case = 1
-g.completion_auto_change_source = 1
+g.completion_matching_ignore_case = 0
+g.diagnostic_auto_popup_while_jump = 1
+g.diagnostic_enable_virtual_text = 1
+g.diagnostic_insert_delay = 1
+g.gitgutter_map_keys = 0
+g.gitgutter_sign_allow_clobber = 0
+g.table_mode_corner = '+'
+g.table_mode_corner_corner = '+'
+g.table_mode_header_fillchar = '='
+g.pandoc_preview_pdf_cmd = "zathura"
+g.space_before_virtual_text = 2
+g.startify_session_persistence = 1
+g.tex_conceal = ""
 
 o.autowriteall = true
 o.autoread = true
@@ -45,12 +51,9 @@ o.swapfile = false
 o.eb = false -- no error bells
 o.wb = false
 o.vb = false
-o.number = true
-o.relativenumber = true
 o.shiftwidth = 4
 o.shortmess = "caFTW"
 o.si = true  -- Smart indent
-o.signcolumn = "yes:1"
 o.smartcase = true
 o.softtabstop = 4
 o.scrolloff = 5
@@ -68,3 +71,7 @@ o.updatetime = 300
 o.whichwrap = "<,>,h,l"
 o.wildignore = "*/node_modules,*/node_modules/*,.git,.git/*,tags,*/dist,*/dist/*"
 o.wrap = true
+
+wo.number = true
+wo.relativenumber = true
+wo.signcolumn = "yes:1"
