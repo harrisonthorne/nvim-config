@@ -4,6 +4,12 @@ syntax on
 
 lua require('init')
 
+set noswapfile
+set undofile
+set undodir="$HOME/.local/share/nvim/undodir"
+set undolevels=1000
+set undoreload=10000
+
 let g:startify_custom_header = startify#fortune#cowsay('', '═','║','╔','╗','╝','╚')
 let g:startify_lists = [
             \ { 'type': 'sessions',  'header': ['   Sessions']             },
@@ -29,8 +35,8 @@ augroup auto_commands
     autocmd!
     autocmd FileType markdown,pandoc call SetupMarkdown()
     " autocmd FileType rust setlocal formatprg="rustfmt"
-    autocmd BufWinLeave * silent! mkview
-    autocmd BufWinEnter * silent! loadview
+    " autocmd BufWinLeave * silent! mkview
+    " autocmd BufWinEnter * silent! loadview
     autocmd BufEnter * checktime
     autocmd CursorHold * nested call AutoSave()
     autocmd BufEnter * lua require'completion'.on_attach()
@@ -185,11 +191,12 @@ endfunction
 
 function! SetupMarkdown()
     setlocal noexpandtab 
-    " setlocal tw=60 
+    setlocal tw=60 
     setlocal shiftwidth=4
     setlocal tabstop=4
     setlocal foldtext=MarkdownFoldText()
     setlocal spell
+    let b:table_mode_corner='+'
 endfunction
 
 function! AutoSave()
