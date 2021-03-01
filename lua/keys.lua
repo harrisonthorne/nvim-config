@@ -18,6 +18,7 @@ map('', "<C-p>", find_files, {})
 -- smart up/down
 map('n', "j", "v:count ? 'j' : 'gj'", { noremap = true, expr = true });
 map('n', "k", "v:count ? 'k' : 'gk'", { noremap = true, expr = true });
+map('n', "$", "g$", { noremap = true });
 
 -- easily edit init.vim file
 map('', "<leader>rc", ":tabe ~/.config/nvim/init.vim<CR>", {})
