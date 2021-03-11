@@ -2,6 +2,8 @@ filetype on
 filetype plugin indent on
 syntax on
 
+let g:polyglot_disabled = ['markdown.plugin', 'pandoc.plugin', 'rust.plugin']
+
 lua require('init')
 
 set noswapfile

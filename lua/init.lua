@@ -20,6 +20,7 @@ vim.cmd("packadd vim-fugitive") -- git integration
 vim.cmd("packadd vim-gitgutter")
 vim.cmd("packadd vim-pandoc") -- pandoc help
 vim.cmd("packadd vim-pandoc-syntax") -- pandoc syntax
+vim.cmd("packadd vim-polyglot") -- language pack
 vim.cmd("packadd vim-smoothie")
 vim.cmd("packadd vim-startify") -- start screen
 vim.cmd("packadd vim-surround")
